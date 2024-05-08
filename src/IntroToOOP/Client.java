@@ -25,6 +25,12 @@ public class Client {
         Student z = new Student("Mohit", "Sept23", 25, 5);
         Student a = new Student("Mohit", 25);
 
+        Student copySt = new Student(a);
+        System.out.println(copySt.getName());
+        System.out.println(Student.noOfStudents);
+        System.out.println(Student.getNoOfStudents(copySt));
+
+        Math
     }
 }
 
