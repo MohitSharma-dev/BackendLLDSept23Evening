@@ -30,7 +30,7 @@ public class Client {
         System.out.println(Student.noOfStudents);
         System.out.println(Student.getNoOfStudents(copySt));
 
-        Math
+
     }
 }
 

@@ -25,6 +25,7 @@ public class Student {
 
     static int initialiseVar(){
         noOfStudents = 5;
+        return noOfStudents;
     }
 
     public Student(){
