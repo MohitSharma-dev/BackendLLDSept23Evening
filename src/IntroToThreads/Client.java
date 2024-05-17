@@ -13,7 +13,7 @@ public class Client {
         Thread t2 = new Thread(n);
         t2.start();
 
-        for(int i = 1; i <= 100; i++){
+        for(int i = 1; i <= 1000000; i++){
             NumberToPrint2 x1 = new NumberToPrint2(i);
             Thread t3 = new Thread(x1);
             t3.start();
