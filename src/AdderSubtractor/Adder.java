@@ -10,7 +10,7 @@ public class Adder implements Callable<Void> {
     }
     public Void call (){
         for(int i = 1;i <=100; i++){
-            this.v.value += i;
+            this.v.value.addAndGet(i);
         }
         return null;
     }

@@ -11,8 +11,10 @@ public class Client {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         Value v = new Value();
         Lock lock = new ReentrantLock();
-        Adder x = new Adder(v , lock);
-        Subtractor y = new Subtractor(v, lock);
+        Lock lock1 = new ReentrantLock();
+        Adder x = new Adder(v , lock , lock1);
+
+        Subtractor y = new Subtractor(v, lock, lock1);
         ExecutorService ec = Executors.newCachedThreadPool();
 
         Future<Void> adderFuture= ec.submit(x);

@@ -8,12 +8,12 @@ public class Producer implements Runnable{
     @Override
     public void run() {
         while(true){
-            synchronized (store) {
+//            synchronized (store) {
                 if (store.getItems().size() < store.getMaxSize()) {
 //                    System.out.println("Cleared production check");
                     store.addItem();
                 }
-            }
+//            }
         }
     }
 }
