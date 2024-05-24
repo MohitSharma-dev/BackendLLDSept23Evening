@@ -22,8 +22,9 @@ public class Adder implements Callable<Void> {
             System.out.println("Adding " + i);
             this.v.value += i;
             lock.unlock();
+            lock1.unlock();
         }
-        lock.unlock();
+//        lock.unlock();
         return null;
     }
 }

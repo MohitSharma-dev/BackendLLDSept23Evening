@@ -21,6 +21,7 @@ public class Subtractor implements Callable<Void> {
             lock1.lock();
             System.out.println("Subtracting " + i);
             this.v.value -= i;
+            lock1.unlock();
             lock.unlock();
         }
 //        lock.unlock();
