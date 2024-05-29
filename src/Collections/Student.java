@@ -2,11 +2,11 @@ package Collections;
 
 public class Student implements Comparable<Student>{
     int rollNo;
-    int age;
+    public int age;
     String name;
     String batch;
 
-    Student(int rollNo, int age, String name, String batch) {
+    public Student(int rollNo, int age, String name, String batch) {
         this.rollNo = rollNo;
         this.age = age;
         this.name = name;
