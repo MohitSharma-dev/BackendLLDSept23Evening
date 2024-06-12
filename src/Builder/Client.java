@@ -18,5 +18,11 @@ public class Client {
                     .build();
 
 //        Student s = new Student(b);
+
+//            s.new Builder();
+//            Student.Builder.temp = "";
+//        Builder b1 = s.Builder();
+            Student.Builder b1 =  new Student.Builder();
+
     }
 }
