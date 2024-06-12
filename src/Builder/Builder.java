@@ -6,19 +6,30 @@ public class Builder {
     int gradYear;
     String batch;
 
-    public void setName(String name) {
+    public Builder setName(String name) {
         this.name = name;
+        return this;
     }
 
-    public void setAge(int age) {
+    public Builder setAge(int age) {
         this.age = age;
+        return this;
+
     }
 
-    public void setGradYear(int gradYear) {
+    public Builder setGradYear(int gradYear) {
         this.gradYear = gradYear;
+        return this;
+
     }
 
-    public void setBatch(String batch) {
+    public Builder setBatch(String batch) {
         this.batch = batch;
+        return this;
+    }
+
+    // This will help you to construct the Student object
+    Student build(){
+        return new Student(this);
     }
 }

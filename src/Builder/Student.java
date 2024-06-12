@@ -54,4 +54,9 @@ public class Student {
     public void setBatch(String batch) {
         this.batch = batch;
     }
+
+    // this will help us to create the object , so it needs to be static
+    public static Builder getBuilder(){
+        return new Builder();
+    }
 }
