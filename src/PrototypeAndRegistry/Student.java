@@ -19,6 +19,7 @@ public class Student implements Prototype<Student>{
 
     @Override
     public Student copy() {
+        // st1 : this
         Student st = new Student(this);
         return st;
     }
