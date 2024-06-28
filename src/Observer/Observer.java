@@ -1,0 +1,8 @@
+package Observer;
+
+public interface Observer {
+	public void update(float temp, float humidity, float pressure);
+}
+
+// anyone who wants to observe must implement this interface
+
