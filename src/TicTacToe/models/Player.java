@@ -1,10 +1,15 @@
 package TicTacToe.models;
 
+import ExceptionHandling.C;
+
+import java.util.Scanner;
+
 public abstract class Player {
     private Long id;
     private String name;
     private Symbol symbol;
     private PlayerType playerType;
+    private Scanner sc = new Scanner(System.in);
 
     public Player(Long id, String name, Symbol symbol) {
         this.id = id;
@@ -42,5 +47,14 @@ public abstract class Player {
 
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
+    }
+
+    public Move makeMove(Board board){
+        System.out.println("Please enter the row in which you want to move");
+        int r = sc.nextInt();
+        System.out.println("Please enter the col in which you want to move");
+        int c = sc.nextInt();
+
+        return new Move(new Cell(r ,c) , this);
     }
 }

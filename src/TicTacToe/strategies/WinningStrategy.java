@@ -1,5 +1,8 @@
 package TicTacToe.strategies;
 
+import TicTacToe.models.Board;
+import TicTacToe.models.Move;
+
 public interface WinningStrategy {
-    public void checkWinner();
+    public boolean checkWinner(Board board , Move move);
 }

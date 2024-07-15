@@ -6,6 +6,14 @@ public class Cell {
     private Symbol symbol;
     private CellState cellState;
 
+    public void setCellState(CellState cellState) {
+        this.cellState = cellState;
+    }
+
+    public CellState getCellState() {
+        return cellState;
+    }
+
     public Cell(int row, int col) {
         this.row = row;
         this.col = col;
@@ -36,4 +44,15 @@ public class Cell {
     public void setSymbol(Symbol symbol) {
         this.symbol = symbol;
     }
+
+    public void displayCell(){
+        // either the cell can be empty
+        if(cellState == CellState.EMPTY){
+            System.out.print("[ - ]");
+        } else {
+            System.out.print("[ " + symbol.getSym() + " ]");
+        }
+    }
 }
+
+// client -> display -> game -> board -> cell

@@ -77,6 +77,68 @@ public class Game {
         return new Builder();
     }
 
+    public void display(){
+        board.displayBoard();
+    }
+
+    public boolean validateMove(Move move){
+        int r = move.getCell().getRow();
+        int c = move.getCell().getCol();
+
+        if(r < 0 || r > board.getSize() - 1 || c < 0 || c > board.getSize() - 1){
+            return false;
+        }
+
+        // we also need to check if Cell is not already filled
+        return board.getGrid().get(r).get(c).getCellState().equals(CellState.EMPTY);
+    }
+
+    public void makeMove(){
+        Player currentPlayer = players.get(nextPlayerIndex);
+
+        System.out.println("It's " + currentPlayer.getName() + "'s turn! Please make your move");
+
+        Move move = currentPlayer.makeMove(board);
+
+        if (!validateMove(move)) {
+            System.out.println("Invalid Move! Please try again");
+            return;
+        }
+
+        int r = move.getCell().getRow();
+        int c = move.getCell().getCol();
+
+        Cell cellToChange = board.getGrid().get(r).get(c);
+        cellToChange.setSymbol(currentPlayer.getSymbol());
+        cellToChange.setCellState(CellState.FILLED);
+
+        move.setCell(cellToChange);
+        moves.add(move);
+
+        nextPlayerIndex++;
+        nextPlayerIndex %= players.size();
+
+        // we need to check if someone has won the game or not
+        if(checkWinner(move)){
+            setWinner(currentPlayer);
+            setGameState(GameState.SUCCESS);
+        } else if (moves.size() ==  board.getSize() * board.getSize()){
+            setWinner(null);
+            setGameState(GameState.DRAW);
+        }
+    }
+
+    public boolean checkWinner(Move move){
+        // we should go through winning strategies available and check if any of
+        // those produces a winner
+        for(WinningStrategy winningStrategy : winningStrategies){
+            if(winningStrategy.checkWinner(this.board , move)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static class Builder{
         private int dimension;
         private List<Player> players;
