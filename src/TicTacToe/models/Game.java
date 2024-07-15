@@ -139,6 +139,33 @@ public class Game {
         return false;
     }
 
+    public void undo(){
+        // whatever we did while making the move
+        // we just need to do reverse of that
+
+        if(moves.isEmpty()){
+            System.out.println("Nothing to Undo! Please make a move first");
+            return;
+        }
+
+        Move lastMove = moves.get(moves.size()-1);
+        moves.remove(moves.size()-1);
+
+        lastMove.getCell().setCellState(CellState.EMPTY);
+        lastMove.getCell().setSymbol(null);
+
+        nextPlayerIndex--;
+        // (a - b ) % n  = (a - b + n ) % n
+        nextPlayerIndex = (nextPlayerIndex + players.size()) % players.size();
+
+
+        // decrease the frequencies in the hashmap
+        for (WinningStrategy winningStrategy : winningStrategies) {
+            winningStrategy.handleUndo(board , lastMove);
+        }
+
+    }
+
     public static class Builder{
         private int dimension;
         private List<Player> players;

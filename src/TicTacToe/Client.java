@@ -7,8 +7,10 @@ import TicTacToe.strategies.RowWinningStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Client {
+    static Scanner scanner = new Scanner(System.in);
     public static void main(String[] args) {
         // GameController can only be one and multiple games can be controlled
         // this will be automatically SB
@@ -25,6 +27,14 @@ public class Client {
         while(gameController.checkState(game).equals(GameState.IN_PROGRESS)) {
             gameController.makeMove(game);
             gameController.displayBoard(game);
+            System.out.println("Do you want to Undo ? [Y/N]");
+            String undoAnswer = scanner.nextLine();
+            if(undoAnswer.equals("Y")) {
+                gameController.undo(game);
+                System.out.println("Undo is successful!");
+                gameController.displayBoard(game);
+            }
+
         }
 
         if(gameController.checkState(game).equals(GameState.SUCCESS)) {

@@ -35,7 +35,7 @@ public class GameController {
     }
 
     public void undo(Game game){
-
+        game.undo();
     }
 
     public void makeMove(Game game){
@@ -45,6 +45,8 @@ public class GameController {
         return game.getWinner();
     }
 }
+
+// 10 : 20 pm
 
 
 // 1. start the Game : create the object of the game :  taking the size , creating the board, getting the players, inputs
