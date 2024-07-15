@@ -10,6 +10,7 @@ public class Game {
     private Board board;
     private List<Player> players;
     private Player winner;
+    // this is used to treat index as turn flag in list of players
     private int nextPlayerIndex;
     private List<Move> moves;
     private GameState gameState;
