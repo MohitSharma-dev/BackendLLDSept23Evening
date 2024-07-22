@@ -11,9 +11,18 @@ public class ParkingLot extends BaseModel{
     // capacity
     private List<VehicleTypeCapacity> vehicleCapacities;
     private ParkingLotStatus parkingLotStatus;
+    private SlotAssignmentStrategyType slotAssignmentStrategyType;
     // you can create a separate class of address
 //    private String address;
 
+
+    public SlotAssignmentStrategyType getSlotAssignmentStrategyType() {
+        return slotAssignmentStrategyType;
+    }
+
+    public void setSlotAssignmentStrategyType(SlotAssignmentStrategyType slotAssignmentStrategyType) {
+        this.slotAssignmentStrategyType = slotAssignmentStrategyType;
+    }
 
     public String getName() {
         return name;

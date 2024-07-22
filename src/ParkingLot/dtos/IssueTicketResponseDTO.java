@@ -2,8 +2,16 @@ package ParkingLot.dtos;
 
 public class IssueTicketResponseDTO {
     private int ticketId;
-    private int amount;
+    private String parkingSlotNumber;
     private ResponseStatus responseStatus;
+
+    public String getParkingSlotNumber() {
+        return parkingSlotNumber;
+    }
+
+    public void setParkingSlotNumber(String parkingSlotNumber) {
+        this.parkingSlotNumber = parkingSlotNumber;
+    }
 
     public ResponseStatus getResponseStatus() {
         return responseStatus;
@@ -21,11 +29,4 @@ public class IssueTicketResponseDTO {
         this.ticketId = ticketId;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
 }
