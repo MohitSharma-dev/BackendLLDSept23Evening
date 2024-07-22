@@ -35,7 +35,7 @@ public class TicketService {
             VehicleType vehicleType,
             int parkingLotId
     ){
-        // 1. create the ticket obj
+        // 1. create the ticket object
         Ticket ticket = new Ticket();
         ticket.setEntryTime(new Date());
 
