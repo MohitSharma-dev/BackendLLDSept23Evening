@@ -24,8 +24,8 @@ public class TicketService {
             TicketRepository ticketRepository
     ){
         this.gateRepository = gateRepository;
-        this.vehicleRepository = new VehicleRepository();
-        this.parkingLotRepository = new ParkingLotRepository();
+        this.vehicleRepository = vehicleRepository;
+        this.parkingLotRepository = parkingLotRepository;
         this.ticketRepository = ticketRepository;
     }
     public Ticket issueTicket(
@@ -73,6 +73,7 @@ public class TicketService {
                  .assignSlot(parkingLot , vehicleType);
 
         ticket.setParkingSlot(parkingSlot);
+        // update the capacity if required
         parkingSlot.setParkingSlotStatus(ParkingSlotStatus.FILLED);
         return ticketRepository.save(ticket);
     }

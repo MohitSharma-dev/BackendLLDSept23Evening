@@ -3,12 +3,20 @@ package ParkingLot.repositories;
 import ParkingLot.models.Gate;
 import ParkingLot.models.ParkingLot;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
 
 public class ParkingLotRepository {
     private Map<Integer, ParkingLot> parkingLots = new TreeMap<>();
+
+    public ParkingLotRepository() {
+        ParkingLot parkingLot = new ParkingLot();
+        parkingLot.setId(1);
+        parkingLots.put(parkingLot.getId(), parkingLot);
+    }
+
     ParkingLot findParkingLotByGate(Gate gate){
         for(ParkingLot parkingLot : parkingLots.values()){
             for(Gate gate1 : parkingLot.getEntryGates()){

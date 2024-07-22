@@ -1,5 +1,6 @@
 package ParkingLot.models;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,6 +16,17 @@ public class ParkingLot extends BaseModel{
     // you can create a separate class of address
 //    private String address;
 
+    public ParkingLot(){
+        parkingFloors = new ArrayList<ParkingFloor>();
+        parkingFloors.add(new ParkingFloor());
+        name = "New Parking Lot";
+        entryGates = new ArrayList<>();
+        entryGates.add(new Gate());
+        exitGates = new ArrayList<>();
+        vehicleCapacities = new ArrayList<>();
+        parkingLotStatus = ParkingLotStatus.OPEN;
+        slotAssignmentStrategyType = SlotAssignmentStrategyType.RANDOM;
+    }
 
     public SlotAssignmentStrategyType getSlotAssignmentStrategyType() {
         return slotAssignmentStrategyType;
