@@ -1,15 +1,21 @@
 package ParkingLot.service;
 
-import ExceptionHandling.D;
-import ParkingLot.models.*;
+import java.util.Date;
+import java.util.Optional;
+
+import ParkingLot.models.Gate;
+import ParkingLot.models.GateType;
+import ParkingLot.models.ParkingLot;
+import ParkingLot.models.ParkingSlot;
+import ParkingLot.models.ParkingSlotStatus;
+import ParkingLot.models.Ticket;
+import ParkingLot.models.Vehicle;
+import ParkingLot.models.VehicleType;
 import ParkingLot.repositories.GateRepository;
 import ParkingLot.repositories.ParkingLotRepository;
 import ParkingLot.repositories.TicketRepository;
 import ParkingLot.repositories.VehicleRepository;
 import ParkingLot.strategies.SlotAssignmentStrategyFactory;
-
-import java.util.Date;
-import java.util.Optional;
 
 public class TicketService {
     private GateRepository gateRepository;
@@ -44,6 +50,9 @@ public class TicketService {
             throw new RuntimeException("Gate not found");
         }
         Gate gate = gateOptional.get();
+        if(!gate.getGateType().equals(GateType.ENTRY)) {
+        	throw new RuntimeException("Hello "+ownerName +"! You are at Exit Gate");
+        }
         ticket.setGate(gate);
         ticket.setOperator(gate.getCurrentOperator());
 

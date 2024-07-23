@@ -1,40 +1,54 @@
 package ParkingLot.models;
 
+import java.util.Date;
+
 public class ParkingSlot extends BaseModel {
-    private String slotNumber;
-    private ParkingSlotStatus parkingSlotStatus;
-    private VehicleType vehicleType;
-    private ParkingFloor parkingFloor;
+	private int slotNumber;
+	private ParkingSlotStatus parkingSlotStatus;
+	private VehicleType vehicleType;
+	private ParkingFloor parkingFloor;
 
-    public ParkingFloor getParkingFloor() {
-        return parkingFloor;
-    }
+	public ParkingSlot() {
+	}
 
-    public void setParkingFloor(ParkingFloor parkingFloor) {
-        this.parkingFloor = parkingFloor;
-    }
+	public ParkingSlot(int id, int slotNumber, ParkingSlotStatus parkingSlotStatus, VehicleType vehicleType) {
+		this.setId(id);
+		this.setCreatedAt(new Date());
+		this.setUpdatedAt(new Date());
+		this.slotNumber = slotNumber;
+		this.parkingSlotStatus = parkingSlotStatus;
+		this.vehicleType = vehicleType;
+	}
 
-    public String getSlotNumber() {
-        return slotNumber;
-    }
+	public ParkingFloor getParkingFloor() {
+		return parkingFloor;
+	}
 
-    public void setSlotNumber(String slotNumber) {
-        this.slotNumber = slotNumber;
-    }
+	public void setParkingFloor(ParkingFloor parkingFloor) {
+		this.parkingFloor = parkingFloor;
+	}
 
-    public ParkingSlotStatus getParkingSlotStatus() {
-        return parkingSlotStatus;
-    }
+	public int getSlotNumber() {
+		return slotNumber;
+	}
 
-    public void setParkingSlotStatus(ParkingSlotStatus parkingSlotStatus) {
-        this.parkingSlotStatus = parkingSlotStatus;
-    }
+	public void setSlotNumber(int slotNumber) {
+		this.slotNumber = slotNumber;
+	}
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
-    }
+	public ParkingSlotStatus getParkingSlotStatus() {
+		return parkingSlotStatus;
+	}
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
-    }
+	public void setParkingSlotStatus(ParkingSlotStatus parkingSlotStatus) {
+		this.parkingSlotStatus = parkingSlotStatus;
+	}
+
+	public VehicleType getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(VehicleType vehicleType) {
+		this.vehicleType = vehicleType;
+	}
 }

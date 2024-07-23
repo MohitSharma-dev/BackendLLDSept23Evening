@@ -2,14 +2,14 @@ package ParkingLot.dtos;
 
 public class IssueTicketResponseDTO {
     private int ticketId;
-    private String parkingSlotNumber;
+    private int parkingSlotNumber;
     private ResponseStatus responseStatus;
 
-    public String getParkingSlotNumber() {
+    public int getParkingSlotNumber() {
         return parkingSlotNumber;
     }
 
-    public void setParkingSlotNumber(String parkingSlotNumber) {
+    public void setParkingSlotNumber(int parkingSlotNumber) {
         this.parkingSlotNumber = parkingSlotNumber;
     }
 
@@ -28,5 +28,13 @@ public class IssueTicketResponseDTO {
     public void setTicketId(int ticketId) {
         this.ticketId = ticketId;
     }
+
+	@Override
+	public String toString() {
+		return "Ticket: [ticketId=" + ticketId + ", parkingSlotNumber=" + parkingSlotNumber
+				+ ", responseStatus=" + responseStatus + "]";
+	}
+    
+    
 
 }

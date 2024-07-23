@@ -1,40 +1,55 @@
 package ParkingLot.models;
 
-public class Gate extends BaseModel{
-    private String gateNumber;
-    private GateType gateType;
-    private Operator currentOperator;
-    private GateStatus gateStatus;
+import java.util.Date;
 
-    public String getGateNumber() {
-        return gateNumber;
-    }
+public class Gate extends BaseModel {
+	private String gateNumber;
+	private GateType gateType;
+	private Operator currentOperator;
+	private GateStatus gateStatus;
 
-    public void setGateNumber(String gateNumber) {
-        this.gateNumber = gateNumber;
-    }
+	public Gate() {
+	}
 
-    public GateType getGateType() {
-        return gateType;
-    }
+	public Gate(int id, String gateNumber, GateType gateType, Operator currentOperator, GateStatus gateStatus) {
+		this.setId(id);
+		this.setCreatedAt(new Date());
+		this.setUpdatedAt(new Date());
+		this.gateNumber = gateNumber;
+		this.gateType = gateType;
+		this.currentOperator = currentOperator;
+		this.gateStatus = gateStatus;
+	}
 
-    public void setGateType(GateType gateType) {
-        this.gateType = gateType;
-    }
+	public String getGateNumber() {
+		return gateNumber;
+	}
 
-    public Operator getCurrentOperator() {
-        return currentOperator;
-    }
+	public void setGateNumber(String gateNumber) {
+		this.gateNumber = gateNumber;
+	}
 
-    public void setCurrentOperator(Operator currentOperator) {
-        this.currentOperator = currentOperator;
-    }
+	public GateType getGateType() {
+		return gateType;
+	}
 
-    public GateStatus getGateStatus() {
-        return gateStatus;
-    }
+	public void setGateType(GateType gateType) {
+		this.gateType = gateType;
+	}
 
-    public void setGateStatus(GateStatus gateStatus) {
-        this.gateStatus = gateStatus;
-    }
+	public Operator getCurrentOperator() {
+		return currentOperator;
+	}
+
+	public void setCurrentOperator(Operator currentOperator) {
+		this.currentOperator = currentOperator;
+	}
+
+	public GateStatus getGateStatus() {
+		return gateStatus;
+	}
+
+	public void setGateStatus(GateStatus gateStatus) {
+		this.gateStatus = gateStatus;
+	}
 }

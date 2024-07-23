@@ -5,6 +5,9 @@ public class Vehicle extends BaseModel{
     private String ownerName;
     private VehicleType vehicleType;
 
+    public Vehicle(){
+    	
+    }
     public String getLicensePlate() {
         return licensePlate;
     }
