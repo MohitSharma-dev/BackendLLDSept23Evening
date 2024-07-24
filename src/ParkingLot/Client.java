@@ -2,12 +2,10 @@ package ParkingLot;
 
 import ParkingLot.controllers.TicketController;
 import ParkingLot.dtos.IssueTicketRequestDTO;
+import ParkingLot.dtos.IssueTicketResponseDTO;
 import ParkingLot.models.Gate;
 import ParkingLot.models.VehicleType;
-import ParkingLot.repositories.GateRepository;
-import ParkingLot.repositories.ParkingLotRepository;
-import ParkingLot.repositories.TicketRepository;
-import ParkingLot.repositories.VehicleRepository;
+import ParkingLot.repositories.*;
 import ParkingLot.service.TicketService;
 
 public class Client {
@@ -16,12 +14,18 @@ public class Client {
         TicketRepository ticketRepository = new TicketRepository();
         ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
         GateRepository gateRepository = new GateRepository();
+        OperatorRepository operatorRepository = new OperatorRepository();
+        ParkingFloorRepository parkingFloorRepository = new ParkingFloorRepository();
+        ParkingSlotRepository parkingSlotRepository = new ParkingSlotRepository();
 
         TicketService ticketService = new TicketService(
                 gateRepository,
                 vehicleRepository,
                 parkingLotRepository,
-                ticketRepository
+                ticketRepository,
+                parkingSlotRepository,
+                operatorRepository,
+                parkingFloorRepository
         );
 
         TicketController ticketController = new TicketController(ticketService);
@@ -33,7 +37,11 @@ public class Client {
         request.setVehicleNumber("DL 1VC 0001");
         request.setParkingLotId(1);
 
-        ticketController.issueTicket(request);
+        IssueTicketResponseDTO responseDTO = ticketController.issueTicket(request);
+
+        System.out.println("Response --> \n"+
+                "getParkingSlotNumber -- "+responseDTO.getParkingSlotNumber() +
+                "\n getTicketId -- "+responseDTO.getTicketId());
     }
 }
 
