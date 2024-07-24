@@ -4,6 +4,11 @@ public class VehicleTypeCapacity {
     private VehicleType vehicleType;
     private int capacity;
 
+    public VehicleTypeCapacity(VehicleType vehicleType, int capacity) {
+        this.vehicleType = vehicleType;
+        this.capacity = capacity;
+    }
+
     public VehicleType getVehicleType() {
         return vehicleType;
     }

@@ -17,12 +17,8 @@ public class ParkingLot extends BaseModel{
 //    private String address;
 
     public ParkingLot(){
-        parkingFloors = new ArrayList<ParkingFloor>();
-        parkingFloors.add(new ParkingFloor());
+        parkingFloors = new ArrayList<>();
         name = "New Parking Lot";
-        entryGates = new ArrayList<>();
-        entryGates.add(new Gate());
-        exitGates = new ArrayList<>();
         vehicleCapacities = new ArrayList<>();
         parkingLotStatus = ParkingLotStatus.OPEN;
         slotAssignmentStrategyType = SlotAssignmentStrategyType.RANDOM;
