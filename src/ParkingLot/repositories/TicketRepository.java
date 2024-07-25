@@ -3,6 +3,7 @@ package ParkingLot.repositories;
 import ParkingLot.models.Ticket;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
 public class TicketRepository {
@@ -14,6 +15,10 @@ public class TicketRepository {
        ticket.setId(previousId);
        tickets.put(ticket.getId(), ticket);
        return ticket;
+   }
+
+   public Optional<Ticket> findById(int id){
+       return Optional.ofNullable(tickets.get(id));
    }
 
 

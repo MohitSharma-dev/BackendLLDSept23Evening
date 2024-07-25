@@ -29,4 +29,12 @@ public class IssueTicketResponseDTO {
         this.ticketId = ticketId;
     }
 
+    @Override
+    public String toString() {
+        return "IssueTicketResponseDTO{" +
+                "ticketId=" + ticketId +
+                ", parkingSlotNumber='" + parkingSlotNumber + '\'' +
+                ", responseStatus=" + responseStatus +
+                '}';
+    }
 }
