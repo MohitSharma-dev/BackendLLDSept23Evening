@@ -31,6 +31,7 @@ public class TicketController {
             response.setParkingSlotNumber(ticket.getParkingSlot().getSlotNumber());
             response.setResponseStatus(ResponseStatus.SUCCESS);
         } catch (Exception e){
+        	e.printStackTrace();
             response.setResponseStatus(ResponseStatus.FAILURE);
         }
         return response;

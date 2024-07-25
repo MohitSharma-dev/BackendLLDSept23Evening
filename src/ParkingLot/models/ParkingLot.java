@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import ParkingLot.strategies.HourlyPriceCalculatorStrategy;
+import ParkingLot.strategies.PriceCalculatorStrategy;
+
 public class ParkingLot extends BaseModel{
     private String name;
     private List<ParkingFloor> parkingFloors;
@@ -13,19 +16,19 @@ public class ParkingLot extends BaseModel{
     private List<VehicleTypeCapacity> vehicleCapacities;
     private ParkingLotStatus parkingLotStatus;
     private SlotAssignmentStrategyType slotAssignmentStrategyType;
+    private PriceCalculatorStrategy priceCalculatorStrategy;
     // you can create a separate class of address
 //    private String address;
 
     public ParkingLot(){
-        parkingFloors = new ArrayList<ParkingFloor>();
-        parkingFloors.add(new ParkingFloor());
+        parkingFloors = List.of(new ParkingFloor());
         name = "New Parking Lot";
-        entryGates = new ArrayList<>();
-        entryGates.add(new Gate());
-        exitGates = new ArrayList<>();
+        entryGates=new ArrayList<>();
+        exitGates=new ArrayList<>();
         vehicleCapacities = new ArrayList<>();
         parkingLotStatus = ParkingLotStatus.OPEN;
         slotAssignmentStrategyType = SlotAssignmentStrategyType.RANDOM;
+        priceCalculatorStrategy=new HourlyPriceCalculatorStrategy();
     }
 
     public SlotAssignmentStrategyType getSlotAssignmentStrategyType() {
@@ -83,6 +86,15 @@ public class ParkingLot extends BaseModel{
     public void setParkingLotStatus(ParkingLotStatus parkingLotStatus) {
         this.parkingLotStatus = parkingLotStatus;
     }
+
+	public PriceCalculatorStrategy getPriceCalculatorStrategy() {
+		return priceCalculatorStrategy;
+	}
+
+	public void setPriceCalculatorStrategy(PriceCalculatorStrategy priceCalculatorStrategy) {
+		this.priceCalculatorStrategy = priceCalculatorStrategy;
+	}
+    
 }
 
 // all the classes are going to have some common

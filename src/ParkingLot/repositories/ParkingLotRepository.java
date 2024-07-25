@@ -1,12 +1,11 @@
 package ParkingLot.repositories;
 
-import ParkingLot.models.Gate;
-import ParkingLot.models.ParkingLot;
-
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
+
+import ParkingLot.models.Gate;
+import ParkingLot.models.ParkingLot;
 
 public class ParkingLotRepository {
     private Map<Integer, ParkingLot> parkingLots = new TreeMap<>();

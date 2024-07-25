@@ -1,7 +1,6 @@
 package ParkingLot.models;
 
 import java.util.List;
-import java.util.Map;
 
 public class ParkingFloor extends BaseModel {
     private String floorName;
@@ -9,6 +8,10 @@ public class ParkingFloor extends BaseModel {
     private ParkingFloorStatus parkingFloorStatus;
     private List<VehicleTypeCapacity> vehicleCapacities;
 
+    public ParkingFloor() {
+    	parkingFloorStatus=ParkingFloorStatus.OPEN;
+		parkingSlots=List.of(new ParkingSlot(1,1,ParkingSlotStatus.EMPTY,VehicleType.BIKE),new ParkingSlot(2,2,ParkingSlotStatus.EMPTY,VehicleType.BIKE),new ParkingSlot(3,3,ParkingSlotStatus.EMPTY,VehicleType.BIKE));
+	}
     public String getFloorName() {
         return floorName;
     }

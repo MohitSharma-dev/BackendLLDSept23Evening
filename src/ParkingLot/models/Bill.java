@@ -1,5 +1,6 @@
 package ParkingLot.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -14,12 +15,21 @@ public class Bill extends BaseModel{
     // Cash : 20 , UPI : 30
     // AmazonPay : 20 , CC : 50
 
-
+    
     public Date getExitTime() {
         return exitTime;
     }
 
-    public void setExitTime(Date exitTime) {
+    public Bill(Ticket ticket ,Gate gate, Operator operator,int amount) {
+		this.exitTime = new Date();
+		this.ticket = ticket;
+		this.gate = gate;
+		this.operator = operator;
+		this.amount=amount;
+		this.payment = new ArrayList<>();
+	}
+
+	public void setExitTime(Date exitTime) {
         this.exitTime = exitTime;
     }
 

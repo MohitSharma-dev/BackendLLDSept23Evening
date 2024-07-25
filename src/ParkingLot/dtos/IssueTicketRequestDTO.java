@@ -8,8 +8,21 @@ public class IssueTicketRequestDTO {
     private String ownerName;
     private VehicleType vehicleType;
     private int parkingLotId;
+    
+    public IssueTicketRequestDTO() {
+	}
 
-    public int getParkingLotId() {
+    public IssueTicketRequestDTO(int gateId, String vehicleNumber, String ownerName, VehicleType vehicleType,
+			int parkingLotId) {
+		super();
+		this.gateId = gateId;
+		this.vehicleNumber = vehicleNumber;
+		this.ownerName = ownerName;
+		this.vehicleType = vehicleType;
+		this.parkingLotId = parkingLotId;
+	}
+
+	public int getParkingLotId() {
         return parkingLotId;
     }
 

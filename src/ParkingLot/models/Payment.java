@@ -8,12 +8,25 @@ public class Payment extends BaseModel{
     private String refNumber;
     private Date paymentDate;
     private PaymentStatus paymentStatus;
+    
 
     public int getAmount() {
         return amount;
     }
+    
+    
 
-    public void setAmount(int amount) {
+    public Payment(int amount, PaymentMode paymentMode, String refNumber, Date paymentDate) {
+		super();
+		this.amount = amount;
+		this.paymentMode = paymentMode;
+		this.refNumber = refNumber;
+		this.paymentDate = paymentDate;
+	}
+
+
+
+	public void setAmount(int amount) {
         this.amount = amount;
     }
 
