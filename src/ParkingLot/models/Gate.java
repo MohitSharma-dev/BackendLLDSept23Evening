@@ -6,6 +6,16 @@ public class Gate extends BaseModel{
     private Operator currentOperator;
     private GateStatus gateStatus;
 
+    public Gate() {
+    }
+    public Gate(int id,String gateNumber, GateType gateType) {
+        this.setId(id);
+        this.gateNumber = gateNumber;
+        this.gateType = gateType;
+        this.currentOperator = new Operator("Operator-1");
+        this.gateStatus = GateStatus.OPEN;
+    }
+
     public String getGateNumber() {
         return gateNumber;
     }
@@ -36,5 +46,15 @@ public class Gate extends BaseModel{
 
     public void setGateStatus(GateStatus gateStatus) {
         this.gateStatus = gateStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Gate{" +
+                "gateNumber='" + gateNumber + '\'' +
+                ", gateType=" + gateType +
+                ", currentOperator=" + currentOperator +
+                ", gateStatus=" + gateStatus +
+                '}';
     }
 }

@@ -13,6 +13,12 @@ public class Bill extends BaseModel{
     // there can be partial payments
     // Cash : 20 , UPI : 30
     // AmazonPay : 20 , CC : 50
+    public Bill(Ticket ticket, int amount, Gate gate, Operator operator) {
+        this.ticket = ticket;
+        this.amount = amount;
+        this.gate = gate;
+        this.operator = operator;
+    }
 
 
     public Date getExitTime() {
@@ -61,6 +67,18 @@ public class Bill extends BaseModel{
 
     public void setPayment(List<Payment> payment) {
         this.payment = payment;
+    }
+
+    @Override
+    public String toString() {
+        return "Bill{" +
+                "exitTime=" + exitTime +
+                ", ticket=" + ticket +
+                ", amount=" + amount +
+                ", gate=" + gate +
+                ", operator=" + operator +
+                ", payment=" + payment +
+                '}';
     }
 }
 

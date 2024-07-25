@@ -9,15 +9,15 @@ import java.util.Optional;
 import java.util.TreeMap;
 
 public class ParkingLotRepository {
-    private Map<Integer, ParkingLot> parkingLots = new TreeMap<>();
-
+    private static final Map<Integer, ParkingLot> parkingLots = new TreeMap<>();
+    private static int idCounter = 1;
     public ParkingLotRepository() {
         ParkingLot parkingLot = new ParkingLot();
-        parkingLot.setId(1);
+        parkingLot.setId(idCounter++);
         parkingLots.put(parkingLot.getId(), parkingLot);
     }
 
-    ParkingLot findParkingLotByGate(Gate gate){
+    public ParkingLot findParkingLotByGate(Gate gate){
         for(ParkingLot parkingLot : parkingLots.values()){
             for(Gate gate1 : parkingLot.getEntryGates()){
                 if(gate1.getId() == gate.getId()){

@@ -6,6 +6,12 @@ public class ParkingSlot extends BaseModel {
     private VehicleType vehicleType;
     private ParkingFloor parkingFloor;
 
+    public ParkingSlot() {
+        this.parkingSlotStatus = ParkingSlotStatus.EMPTY;
+        this.vehicleType = VehicleType.CAR;
+        this.slotNumber = "SLOT-0";
+    }
+
     public ParkingFloor getParkingFloor() {
         return parkingFloor;
     }
