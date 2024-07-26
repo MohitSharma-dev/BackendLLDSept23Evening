@@ -1,20 +1,17 @@
-package ParkingLot.repositories;
+package ParkingLot.Repositories;
 
 import ParkingLot.models.Ticket;
 
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.HashMap;
 
 public class TicketRepository {
-   private static Map<Integer, Ticket> tickets = new TreeMap<>();
-   private static int previousId = 0;
-   public Ticket save(Ticket ticket){
-       // the diff both the objects are the id
-       previousId += 1;
-       ticket.setId(previousId);
-       tickets.put(ticket.getId(), ticket);
-       return ticket;
-   }
+ HashMap<Integer, Ticket> tickets = new HashMap<>();
+ int ticketID = 0;
 
-
+ public Ticket save(Ticket ticket) {
+     ticketID+=1;
+     ticket.setId(ticketID);
+     tickets.put(ticketID, ticket);
+     return ticket;
+ }
 }

@@ -1,28 +1,21 @@
 package ParkingLot.dtos;
 
-import ParkingLot.models.VehicleType;
+
+import ParkingLot.models.AllowedVehicleType;
 
 public class IssueTicketRequestDTO {
-    private int gateId;
+    private String gateNumber;
     private String vehicleNumber;
     private String ownerName;
-    private VehicleType vehicleType;
+    private AllowedVehicleType vehicleType;
     private int parkingLotId;
 
-    public int getParkingLotId() {
-        return parkingLotId;
+    public String getGateNumber() {
+        return gateNumber;
     }
 
-    public void setParkingLotId(int parkingLotId) {
-        this.parkingLotId = parkingLotId;
-    }
-
-    public int getGateId() {
-        return gateId;
-    }
-
-    public void setGateId(int gateId) {
-        this.gateId = gateId;
+    public void setGateNumber(String gateNumber) {
+        this.gateNumber = gateNumber;
     }
 
     public String getVehicleNumber() {
@@ -41,11 +34,19 @@ public class IssueTicketRequestDTO {
         this.ownerName = ownerName;
     }
 
-    public VehicleType getVehicleType() {
+    public AllowedVehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
+    public void setVehicleType(AllowedVehicleType vehicleType) {
         this.vehicleType = vehicleType;
+    }
+
+    public int getParkingLotId() {
+        return parkingLotId;
+    }
+
+    public void setParkingLotId(int parkingLotId) {
+        this.parkingLotId = parkingLotId;
     }
 }

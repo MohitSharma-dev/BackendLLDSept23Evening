@@ -1,43 +1,36 @@
-package ParkingLot.controllers;
+package ParkingLot.Controllers;
 
+import ParkingLot.Services.TicketService;
 import ParkingLot.dtos.IssueTicketRequestDTO;
 import ParkingLot.dtos.IssueTicketResponseDTO;
 import ParkingLot.dtos.ResponseStatus;
-import ParkingLot.models.Gate;
-import ParkingLot.models.Operator;
 import ParkingLot.models.Ticket;
-import ParkingLot.models.Vehicle;
-import ParkingLot.service.TicketService;
+
 
 public class TicketController {
-    private TicketService ticketService;
+    TicketService ticketService = null;
 
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
 
-    public IssueTicketResponseDTO issueTicket(IssueTicketRequestDTO request){
-        IssueTicketResponseDTO response = new IssueTicketResponseDTO();
+    public IssueTicketResponseDTO issueTicket(IssueTicketRequestDTO issueTicketRequestDTO) {
+        IssueTicketResponseDTO issueTicketResponseDTO = new IssueTicketResponseDTO();
 
         try{
-            Ticket ticket = ticketService.issueTicket(
-                    request.getGateId(),
-                    request.getVehicleNumber(),
-                    request.getOwnerName(),
-                    request.getVehicleType(),
-                    request.getParkingLotId()
-            );
-            response.setTicketId(ticket.getId());
-            response.setParkingSlotNumber(ticket.getParkingSlot().getSlotNumber());
-            response.setResponseStatus(ResponseStatus.SUCCESS);
-        } catch (Exception e){
-            response.setResponseStatus(ResponseStatus.FAILURE);
+            Ticket ticket =  ticketService.issueTicket(issueTicketRequestDTO.getGateNumber(),
+                    issueTicketRequestDTO.getVehicleNumber(),
+                    issueTicketRequestDTO.getVehicleType(),
+                    issueTicketRequestDTO.getOwnerName(),
+                    issueTicketRequestDTO.getParkingLotId());
+
+            issueTicketResponseDTO.setTicketId(ticket.getId());
+            issueTicketResponseDTO.setParkingSlotNumber(ticket.getParkingSlot().getParkingSlotId());
+            issueTicketResponseDTO.setResponseStatus(ResponseStatus.SUCCESS);
         }
-        return response;
+       catch (RuntimeException e){
+           issueTicketResponseDTO.setResponseStatus(ResponseStatus.FAILED);
+       }
+        return  issueTicketResponseDTO;
     }
 }
-
-// DTO : Data Transfer Object
-
-// business logic
-// service

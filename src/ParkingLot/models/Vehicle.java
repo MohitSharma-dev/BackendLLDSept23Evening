@@ -1,16 +1,17 @@
 package ParkingLot.models;
 
-public class Vehicle extends BaseModel{
-    private String licensePlate;
+public class Vehicle extends  BaseModel {
+    private String vehicleNumber;
     private String ownerName;
-    private VehicleType vehicleType;
+    private AllowedVehicleType vehicleType;
 
-    public String getLicensePlate() {
-        return licensePlate;
+
+    public String getVehicleNumber() {
+        return vehicleNumber;
     }
 
-    public void setLicensePlate(String licensePlate) {
-        this.licensePlate = licensePlate;
+    public void setVehicleNumber(String vehicleNumber) {
+        this.vehicleNumber = vehicleNumber;
     }
 
     public String getOwnerName() {
@@ -21,11 +22,11 @@ public class Vehicle extends BaseModel{
         this.ownerName = ownerName;
     }
 
-    public VehicleType getVehicleType() {
+    public AllowedVehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
+    public void setVehicleType(AllowedVehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
 }

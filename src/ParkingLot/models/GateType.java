@@ -1,6 +1,6 @@
 package ParkingLot.models;
 
 public enum GateType {
-    ENTRY,
-    EXIT
+    ENTRY_GATE,
+    EXIT_GATE
 }

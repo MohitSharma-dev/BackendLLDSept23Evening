@@ -1,25 +1,26 @@
 package ParkingLot.models;
 
-public class ParkingSlot extends BaseModel {
-    private String slotNumber;
+public class ParkingSlot extends  BaseModel{
+    private String parkingSlotId;
+    private AllowedVehicleType allowedVehicleType;
     private ParkingSlotStatus parkingSlotStatus;
-    private VehicleType vehicleType;
+    private Vehicle Vehicle;
     private ParkingFloor parkingFloor;
 
-    public ParkingFloor getParkingFloor() {
-        return parkingFloor;
+    public String getParkingSlotId() {
+        return parkingSlotId;
     }
 
-    public void setParkingFloor(ParkingFloor parkingFloor) {
-        this.parkingFloor = parkingFloor;
+    public void setParkingSlotId(String parkingSlotId) {
+        this.parkingSlotId = parkingSlotId;
     }
 
-    public String getSlotNumber() {
-        return slotNumber;
+    public AllowedVehicleType getAllowedVehicleType() {
+        return allowedVehicleType;
     }
 
-    public void setSlotNumber(String slotNumber) {
-        this.slotNumber = slotNumber;
+    public void setAllowedVehicleType(AllowedVehicleType allowedVehicleType) {
+        this.allowedVehicleType = allowedVehicleType;
     }
 
     public ParkingSlotStatus getParkingSlotStatus() {
@@ -30,11 +31,19 @@ public class ParkingSlot extends BaseModel {
         this.parkingSlotStatus = parkingSlotStatus;
     }
 
-    public VehicleType getVehicleType() {
-        return vehicleType;
+    public Vehicle getVehicle() {
+        return Vehicle;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
+    public void setVehicle(Vehicle vehicle) {
+        Vehicle = vehicle;
+    }
+
+    public ParkingFloor getParkingFloor() {
+        return parkingFloor;
+    }
+
+    public void setParkingFloor(ParkingFloor parkingFloor) {
+        this.parkingFloor = parkingFloor;
     }
 }
