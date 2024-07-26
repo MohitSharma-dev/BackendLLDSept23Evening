@@ -1,14 +1,14 @@
 package ParkingLot.models;
 
 public class VehicleTypeCapacity {
-    private VehicleType vehicleType;
+    private AllowedVehicleType vehicleType;
     private int capacity;
 
-    public VehicleType getVehicleType() {
+    public AllowedVehicleType getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
+    public void setVehicleType(AllowedVehicleType vehicleType) {
         this.vehicleType = vehicleType;
     }
 

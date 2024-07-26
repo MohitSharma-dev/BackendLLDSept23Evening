@@ -1,20 +1,27 @@
 package ParkingLot.models;
+import  java.util.List;
 
-import java.util.List;
-import java.util.Map;
-
-public class ParkingFloor extends BaseModel {
-    private String floorName;
+public class ParkingFloor extends  BaseModel{
+    private String parkingFloorName;
+    private List<AllowedVehicleType> allowedVehicleTypes;
     private List<ParkingSlot> parkingSlots;
     private ParkingFloorStatus parkingFloorStatus;
-    private List<VehicleTypeCapacity> vehicleCapacities;
+    private List<VehicleTypeCapacity> vehicleTypeCapacity;
 
-    public String getFloorName() {
-        return floorName;
+    public String getParkingFloorName() {
+        return parkingFloorName;
     }
 
-    public void setFloorName(String floorName) {
-        this.floorName = floorName;
+    public void setParkingFloorName(String parkingFloorName) {
+        this.parkingFloorName = parkingFloorName;
+    }
+
+    public List<AllowedVehicleType> getAllowedVehicleTypes() {
+        return allowedVehicleTypes;
+    }
+
+    public void setAllowedVehicleTypes(List<AllowedVehicleType> allowedVehicleTypes) {
+        this.allowedVehicleTypes = allowedVehicleTypes;
     }
 
     public List<ParkingSlot> getParkingSlots() {
@@ -33,11 +40,11 @@ public class ParkingFloor extends BaseModel {
         this.parkingFloorStatus = parkingFloorStatus;
     }
 
-    public List<VehicleTypeCapacity> getVehicleCapacities() {
-        return vehicleCapacities;
+    public List<VehicleTypeCapacity> getVehicleTypeCapacity() {
+        return vehicleTypeCapacity;
     }
 
-    public void setVehicleCapacities(List<VehicleTypeCapacity> vehicleCapacities) {
-        this.vehicleCapacities = vehicleCapacities;
+    public void setVehicleTypeCapacity(List<VehicleTypeCapacity> vehicleTypeCapacity) {
+        this.vehicleTypeCapacity = vehicleTypeCapacity;
     }
 }

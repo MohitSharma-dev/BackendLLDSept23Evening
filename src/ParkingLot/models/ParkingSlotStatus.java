@@ -2,5 +2,6 @@ package ParkingLot.models;
 
 public enum ParkingSlotStatus {
     EMPTY,
-    FILLED
+    FILLED,
+    BLOCKED
 }

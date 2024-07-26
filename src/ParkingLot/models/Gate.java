@@ -1,9 +1,11 @@
 package ParkingLot.models;
 
-public class Gate extends BaseModel{
+import java.util.Spliterator;
+
+public class Gate extends  BaseModel{
     private String gateNumber;
     private GateType gateType;
-    private Operator currentOperator;
+    private Operator operator;
     private GateStatus gateStatus;
 
     public String getGateNumber() {
@@ -22,12 +24,12 @@ public class Gate extends BaseModel{
         this.gateType = gateType;
     }
 
-    public Operator getCurrentOperator() {
-        return currentOperator;
+    public Operator getOperator() {
+        return operator;
     }
 
-    public void setCurrentOperator(Operator currentOperator) {
-        this.currentOperator = currentOperator;
+    public void setOperator(Operator operator) {
+        this.operator = operator;
     }
 
     public GateStatus getGateStatus() {
@@ -37,4 +39,6 @@ public class Gate extends BaseModel{
     public void setGateStatus(GateStatus gateStatus) {
         this.gateStatus = gateStatus;
     }
+
+
 }

@@ -1,47 +1,31 @@
 package ParkingLot.models;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import ParkingLot.Strategy.SlotAssignmentStrategy;
 
-public class ParkingLot extends BaseModel{
-    private String name;
+public class ParkingLot extends  BaseModel{
+
+    private String location;
+    private List<AllowedVehicleType> allowedVehicleTypes;
     private List<ParkingFloor> parkingFloors;
-    private List<Gate> entryGates;
-    private List<Gate> exitGates;
-    // capacity
-    private List<VehicleTypeCapacity> vehicleCapacities;
-    private ParkingLotStatus parkingLotStatus;
-    private SlotAssignmentStrategyType slotAssignmentStrategyType;
-    // you can create a separate class of address
-//    private String address;
+    private List<Gate> entryGateList;
+    private List<Gate> exitGateList;
+    private List<VehicleTypeCapacity> vehicleTypeCapacities;
+    private SlotAssignmentStrategyType parkingSlotAssignmentStrategyType;
 
-    public ParkingLot(){
-        parkingFloors = new ArrayList<ParkingFloor>();
-        parkingFloors.add(new ParkingFloor());
-        name = "New Parking Lot";
-        entryGates = new ArrayList<>();
-        entryGates.add(new Gate());
-        exitGates = new ArrayList<>();
-        vehicleCapacities = new ArrayList<>();
-        parkingLotStatus = ParkingLotStatus.OPEN;
-        slotAssignmentStrategyType = SlotAssignmentStrategyType.RANDOM;
+    public String getLocation() {
+        return location;
     }
 
-    public SlotAssignmentStrategyType getSlotAssignmentStrategyType() {
-        return slotAssignmentStrategyType;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setSlotAssignmentStrategyType(SlotAssignmentStrategyType slotAssignmentStrategyType) {
-        this.slotAssignmentStrategyType = slotAssignmentStrategyType;
+    public List<AllowedVehicleType> getAllowedVehicleTypes() {
+        return allowedVehicleTypes;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setAllowedVehicleTypes(List<AllowedVehicleType> allowedVehicleTypes) {
+        this.allowedVehicleTypes = allowedVehicleTypes;
     }
 
     public List<ParkingFloor> getParkingFloors() {
@@ -52,40 +36,35 @@ public class ParkingLot extends BaseModel{
         this.parkingFloors = parkingFloors;
     }
 
-    public List<Gate> getEntryGates() {
-        return entryGates;
+    public List<Gate> getEntryGateList() {
+        return entryGateList;
     }
 
-    public void setEntryGates(List<Gate> entryGates) {
-        this.entryGates = entryGates;
+    public void setEntryGateList(List<Gate> entryGateList) {
+        this.entryGateList = entryGateList;
     }
 
-    public List<Gate> getExitGates() {
-        return exitGates;
+    public List<Gate> getExitGateList() {
+        return exitGateList;
     }
 
-    public void setExitGates(List<Gate> exitGates) {
-        this.exitGates = exitGates;
+    public void setExitGateList(List<Gate> exitGateList) {
+        this.exitGateList = exitGateList;
     }
 
-    public List<VehicleTypeCapacity> getVehicleCapacities() {
-        return vehicleCapacities;
+    public List<VehicleTypeCapacity> getVehicleTypeCapacities() {
+        return vehicleTypeCapacities;
     }
 
-    public void setVehicleCapacities(List<VehicleTypeCapacity> vehicleCapacities) {
-        this.vehicleCapacities = vehicleCapacities;
+    public void setVehicleTypeCapacities(List<VehicleTypeCapacity> vehicleTypeCapacities) {
+        this.vehicleTypeCapacities = vehicleTypeCapacities;
     }
 
-    public ParkingLotStatus getParkingLotStatus() {
-        return parkingLotStatus;
+    public SlotAssignmentStrategyType getParkingSlotAssignmentStrategyType() {
+        return parkingSlotAssignmentStrategyType;
     }
 
-    public void setParkingLotStatus(ParkingLotStatus parkingLotStatus) {
-        this.parkingLotStatus = parkingLotStatus;
+    public void setParkingSlotAssignmentStrategyType(SlotAssignmentStrategyType parkingSlotAssignmentStrategyType) {
+        this.parkingSlotAssignmentStrategyType = parkingSlotAssignmentStrategyType;
     }
 }
-
-// all the classes are going to have some common
-// id
-// created_at
-// modified_at

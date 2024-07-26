@@ -1,56 +1,45 @@
 package ParkingLot;
 
-import ParkingLot.controllers.TicketController;
+import ParkingLot.Controllers.TicketController;
+import ParkingLot.DataBase.DataBaseController;
+import ParkingLot.Repositories.*;
+import ParkingLot.Services.TicketService;
 import ParkingLot.dtos.IssueTicketRequestDTO;
-import ParkingLot.models.Gate;
-import ParkingLot.models.VehicleType;
-import ParkingLot.repositories.GateRepository;
-import ParkingLot.repositories.ParkingLotRepository;
-import ParkingLot.repositories.TicketRepository;
-import ParkingLot.repositories.VehicleRepository;
-import ParkingLot.service.TicketService;
+import ParkingLot.dtos.IssueTicketResponseDTO;
+import ParkingLot.models.AllowedVehicleType;
 
 public class Client {
     public static void main(String[] args) {
-        VehicleRepository vehicleRepository = new VehicleRepository();
-        TicketRepository ticketRepository = new TicketRepository();
-        ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
         GateRepository gateRepository = new GateRepository();
+        ParkingLotRepository parkingLotRepository = new ParkingLotRepository();
+        TicketRepository ticketRepository = new TicketRepository();
+        VehicleRepository vehicleRepository = new VehicleRepository();
+        OperatorRepository operatorRepository = new OperatorRepository();
+        ParkingSlotRepository parkingSlotRepository = new ParkingSlotRepository();
+        ParkingFloorRepository parkingFloorRepository = new ParkingFloorRepository();
 
-        TicketService ticketService = new TicketService(
-                gateRepository,
-                vehicleRepository,
-                parkingLotRepository,
-                ticketRepository
-        );
+
+        DataBaseController.InitializeDataBaseTransaction(gateRepository,parkingLotRepository,operatorRepository,parkingFloorRepository,parkingSlotRepository);
+
+        TicketService ticketService = new TicketService(gateRepository,vehicleRepository,
+                parkingLotRepository,ticketRepository);
 
         TicketController ticketController = new TicketController(ticketService);
 
-        IssueTicketRequestDTO request = new IssueTicketRequestDTO();
-        request.setGateId(1);
-        request.setOwnerName("Mohit");
-        request.setVehicleType(VehicleType.AUTO);
-        request.setVehicleNumber("DL 1VC 0001");
-        request.setParkingLotId(1);
+        IssueTicketRequestDTO issueTicketRequestDTO = new IssueTicketRequestDTO();
+        issueTicketRequestDTO.setGateNumber("1A");
+        issueTicketRequestDTO.setVehicleNumber("KA 09 567");
+        issueTicketRequestDTO.setOwnerName("Radha");
+        issueTicketRequestDTO.setVehicleType(AllowedVehicleType.CAR);
+        issueTicketRequestDTO.setParkingLotId(1);
 
-        ticketController.issueTicket(request);
+       IssueTicketResponseDTO issueTicketResponseDTO = ticketController.issueTicket(issueTicketRequestDTO);
+
+       System.out.println("Ticket Details Below");
+       System.out.println("Ticket Id : " + issueTicketResponseDTO.getTicketId());
+       System.out.println("Assigned Slot : "+ issueTicketResponseDTO.getParkingSlotNumber());
+
+
+
     }
 }
-
-// Controllers
-// Services
-// Repository
-
-// C <- S <- R
-
-// Generate the ticket : CRUD : Ticket : TicketController
-
-// Gathered requirement
-// class diagram
-// schema design
-// code models
-// code controller
-    // DTO
-// Issue ticket completion
-
-// HW : Generating the bill , check-out
